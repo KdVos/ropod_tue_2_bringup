@@ -2,7 +2,7 @@
 
 <launch>
     <arg name="robot_bringup"/>
-
+    <!--<node pkg="rviz" type="rviz" name="rviz" args="-d $(arg robot_bringup)/parameters/tools/rviz_config.rviz"  output="screen" />-->
 	<node pkg="rviz" type="rviz" name="rviz" args="-d $(arg robot_bringup)/parameters/tools/rviz_config.rviz" />
 
 </launch>
