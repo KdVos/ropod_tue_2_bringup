@@ -9,18 +9,19 @@
 	<arg name="LOAD_ATTACHED" default="false" />	
 	<arg name="laser" default="true"/>
 	<arg name="laser1_name" value ="laser"/>
-        <arg name="laser2_name" value ="laser_back"/>
-        <arg name="add_laser_back" value="false"/>
+	<arg name="laser2_name" value ="laser_back"/>
+	<arg name="add_laser_back" value="false"/>
 <!--    <arg name="laser1_name" value ="hokuyo_laser_ip"/>-->
 	<arg name="asus_cam" default="false"/> 
 	<arg name="asus_cam_name" value="asusxtion"/>
 	<arg name="asus_cam_calibration" default="false"/>
-	<arg name="gmapping" default="false"/>
+	<arg name="gmapping" default="false" />
 	<!--<arg name="floorplan" default="$(find ropod_demo_dec_2017)/config/shape/floorplan_ropod_demo"/>-->
         <!-- <arg name="floorplan" default="$(find ed_object_models)/models/hospital_test_amcl/walls/shape/Floorplan_demo_ROPOD_amcl"/> -->
         <!--<arg name="floorplan" default="$(find ed_object_models)/models/brsu/walls/shape/map"/>-->
         <!--<arg name="floorplan" default="$(find ed_object_models)/models/tue_hallway_RLtoAL/walls/shape/map"/>-->
-        <arg name="floorplan" default="$(find ed_object_models)/models/tue_hallway_RLtoAL/walls/shape/map_2DoorsOpen"/> 
+    <arg name="floorplan" default="$(find ed_object_models)/models/tue_hallway_RLtoAL/walls/shape/map_2DoorsOpen"/>
+	<!--<arg name="floorplan" default="$(find ed_object_models)/models/tue_hallway_RLtoAL/walls/shape/straight_hallway"/>  -->
 	<arg name="ROBOT_REAL" default="$(optenv ROBOT_REAL)" />
 	<arg name="robot_path" default="$(env CATKIN_WORKSPACE)/src/platform"/>
 
@@ -30,12 +31,10 @@
 
 	<group ns="$(arg robotName)">
 		<!-- Start gmapping if required-->
-		<group if="$(arg gmapping)">
-			  <include file="$(find robot_common)/launch/localization/gmapping.launch">
-				<arg name="robot" value="$(arg robotCommonName)" />
-				<arg name="sensor" value="$(arg laser1_name)"/>
-			</include>
-		</group>
+		  <include file="$(find robot_common)/launch/localization/gmapping.launch" if="$(arg gmapping)" >
+			<arg name="robot" value="$(arg robotCommonName)" />
+			<arg name="sensor" value="$(arg laser1_name)"/>
+		</include>
 		
 		<group if="$(arg ROBOT_REAL)">
 	  	<!-- Do for both: Simulator and Real Robot -->
@@ -179,7 +178,7 @@
         
 		<!-- Add floorplan. -->
        	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
-                args="-file $(arg floorplan).urdf -urdf -z 1 -model floorplan -x 0.0 -y 0.0 -z 0 -Y 0.0" 
+                args="-file $(arg floorplan).urdf -urdf -z 1 -model floorplan -x 0 -y 0.0 -z 0 -Y 0.0" 
         />	
 
 		<!-- Launch RVIZ -->

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <launch>
-	<arg name="wired_connection" default="$(optenv WIRED_CONNECTION)" />
+	<arg name="wired_connection" default="$(optenv WIRED_CONNECTION false)" />
 
 	<group unless="$(arg wired_connection)">
 		<machine name="localhost" address="192.168.44.81" default="true" />
