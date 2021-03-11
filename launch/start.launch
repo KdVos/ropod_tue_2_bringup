@@ -18,7 +18,7 @@
 	<arg name="gmapping" default="false"/>
 	<!--<arg name="floorplan" default="$(find ropod_demo_dec_2017)/config/shape/floorplan_ropod_demo"/>-->
         <!-- <arg name="floorplan" default="$(find ed_object_models)/models/hospital_test_amcl/walls/shape/Floorplan_demo_ROPOD_amcl"/> -->
-        <arg name="floorplan" default="$(find ed_object_models)/models/tue_hallway_RLtoAL/walls/shape/map"/> 
+        <arg name="floorplan" default="$(find ropod_sim_model)/maps/tue_hallway_RLtoAL/map"/> 
 	<arg name="ROBOT_REAL" default="$(optenv ROBOT_REAL)" />
 	<arg name="robot_path" default="$(env CATKIN_WORKSPACE)/src/platform"/>
 
@@ -176,8 +176,9 @@
 
         
 		<!-- Add floorplan. -->
-       	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
-			args="-file $(arg floorplan).urdf -urdf -z 1 -model floorplan -x -4.9 -y 9.8 -z 0 -Y -1.54" 
+       	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"  
+			args="-file $(arg floorplan).urdf -urdf -z 1 -model floorplan -x 0.0 -y 0.0 -z 0.0 -Y 0.25" 
+
         />	
 
 		<!-- Launch RVIZ -->
