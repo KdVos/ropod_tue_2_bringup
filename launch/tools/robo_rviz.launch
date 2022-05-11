@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="robot_bringup"/>
+
+	<node pkg="rviz" type="rviz" name="rviz" args="~/ropod-project-software/catkin_workspace/src/platform/ropod_tue_2_bringup/parameters/tools/rviz_config.rviz" />
+
+</launch>
