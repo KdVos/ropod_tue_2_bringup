@@ -7,6 +7,11 @@ alias ropod-wireless="export ROS_MASTER_URI=http://$ROPOD_TUE_2_IP:11311;
                      export WIRED_CONNECTION=false;
                      unset ROS_HOSTNAME"
 
+alias cura-wireless="export ROS_MASTER_URI=http://$CURA_IP:11311;
+                     export ROS_IP=$CURA_IP;
+                     export WIRED_CONNECTION=false;
+                     unset ROS_HOSTNAME"
+
 ropod-wireless
 
 alias ropod-wired="export ROS_MASTER_URI=http://$ROPOD_IP_WIRED:11311;
