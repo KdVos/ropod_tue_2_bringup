@@ -71,7 +71,8 @@
 			<!-- Spawn the Robot -->
 			<include file="$(arg robot_bringup_path)/launch/subfiles/spawn_robot.launch">
 				<arg name="robot" value="$(arg robotName)"/>
-				<arg name="modelname" value="$(arg modelname)"/>
+				<arg name="model_name" if="$(arg LOAD_ATTACHED)" value="$(arg robotCommonName)_$(arg loadName)"/>
+				<arg name="model_name" unless="$(arg LOAD_ATTACHED)" value="$(arg robotCommonName)"/>
 			</include>
 		</group>
 	</group>

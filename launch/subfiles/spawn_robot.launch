@@ -9,7 +9,7 @@
     <env name="GAZEBO_PLUGIN_PATH" value="$(env CATKIN_WORKSPACE)/devel/lib:$(optenv GAZEBO_PLUGIN_PATH)"/>
 
     <node name="ropod_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf 
-                                                                                        -file $(find ropod_sim_model)/simulator/models/ropod/$(arg model_name).sdf 
+                                                                                        -file $(find ropod_sim_model)/simulator/models/$(arg model_name)/$(arg model_name).sdf 
                                                                                         -model $(arg robot)
                                                                                         -x 0
                                                                                         -y 0

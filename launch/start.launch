@@ -25,7 +25,7 @@
 	<!-- Include Launch files -->
 		<!-- Launch Simulator -->
 	<include unless="$(arg ROBOT_REAL)" file="$(arg robot_bringup_path)/launch/subfiles/launchsim.launch">
-		<arg name="robot" value="$(arg robotName)"/>
+		<arg name="robot" value="$(arg robotCommonName)"/>
 		<arg name="floorplan" default="$(arg floorplan)"/>
    		<arg name="gui" default="$(arg gui)" />
 	</include>
