@@ -2,7 +2,7 @@
 <launch>
 	<!-- Configurable Parameters -->
 	<!-- Robot and Load Naming -->
-	<arg name="robotName" default="ropod2"/>
+	<arg name="robotName" default="ropod"/>
 	<arg name="robotCommonName" default="ropod"/>
 	<arg name="loadName" default="mobidik"/>
 	<arg name="LOAD_ATTACHED" default="false" />
@@ -70,7 +70,8 @@
 			</include>
 			<!-- Spawn the Robot -->
 			<include file="$(arg robot_bringup_path)/launch/subfiles/spawn_robot.launch">
-				
+				<arg name="robot" value="$(arg robotName)"/>
+				<arg name="modelname" value="$(arg modelname)"/>
 			</include>
 		</group>
 	</group>

@@ -1,18 +1,15 @@
 <?xml version="1.0"?>
 <launch>
-    
+
+    <arg name="robot" default="ropod"/>
+    <arg name="model_name" default="ropod"/>
+
     <env name="GAZEBO_MODEL_PATH" value="$(find ropod_sim_model)/simulator/models:$(optenv GAZEBO_MODEL_PATH)"/>
     <env name="GAZEBO_RESOURCE_PATH" value="$(find ropod_sim_model)/simulator:$(optenv GAZEBO_RESOURCE_PATH)"/>
     <env name="GAZEBO_PLUGIN_PATH" value="$(env CATKIN_WORKSPACE)/devel/lib:$(optenv GAZEBO_PLUGIN_PATH)"/>
 
-    <arg name="robot" default="ropod"/>
-    <arg name="model_name" default="ropod"/>
-    <arg name="model_path" default="$(find ropod_sim_model)" />
-    <arg name="gui" default="true" />
-    <arg name="movingObjects" default="false" />
-
     <node name="ropod_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf 
-                                                                                        -file $(find ropod_sim_model)simulator/models/ropod/$(arg model_name).sdf 
+                                                                                        -file $(find ropod_sim_model)/simulator/models/ropod/$(arg model_name).sdf 
                                                                                         -model $(arg robot)
                                                                                         -x 0
                                                                                         -y 0
