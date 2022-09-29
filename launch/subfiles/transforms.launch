@@ -4,7 +4,7 @@
     <arg name="robotName" default="ropod"/>
     <arg name="robotPackage" default="ropod_tue_2_bringup"/>
     <arg name="robot_path" default="$(env CATKIN_WORKSPACE)/src/platform"/>
-    <arg name="robot_bringup_path" default="$(arg robot_path)/$(arg robotPackage)"/> <!-- #TODO findpackage -->
+    <arg name="robot_bringup_path" default="$(arg robot_path)/$(arg robotPackage)"/>
     <!-- Parameters for load and real hardware -->
     <arg name="LOAD_ATTACHED" default="false"/>
     <arg name="ROBOT_REAL" default="$(optenv ROBOT_REAL)"/>
